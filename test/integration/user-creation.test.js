@@ -5,12 +5,12 @@ var Bluebird = require('bluebird');
 var expect   = require('expect.js');
 var request  = require('supertest');
 
-describe('user creation page', function () {
-  before(function () {
+describe('user creation page', () => {
+  before(() => {
       return require('../../models').sequelize.sync();
   });
   
-  beforeEach(function () {
+  beforeEach(() => {
     this.models = require('../../models');
 
     return Bluebird.all([
@@ -18,12 +18,12 @@ describe('user creation page', function () {
     ]);
   });
 
-  it('loads correctly', function (done) {
+  it('loads correctly', (done) => {
     request(app).get('/').expect(200, done);
   });
 
-  it('lists a user if there is one', function (done) {
-    this.models.User.create({ username: 'johndoe' }).then(function () {
+  it('lists a user if there is one', (done) => {
+    this.models.User.create({ username: 'johndoe' }).then(() => {
       request(app).get('/').expect(/johndoe/, done);
     })
   });

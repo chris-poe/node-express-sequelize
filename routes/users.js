@@ -2,21 +2,37 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 
-router.post('/create', function(req, res) {
-  models.User.create({
-    username: req.body.username
-  }).then(function() {
-    res.redirect('/');
+router.get('/', (req, res) => {
+  models.User.findAll().then((users) => {
+    res.send(users);
   });
 });
 
-router.get('/:user_id/destroy', function(req, res) {
+router.post('/create', (req, res) => {
+  models.User.create({
+    username: req.body.username
+  }).then(() => {
+    return res.json({
+      "message": "User created"
+    });
+  });
+});
+
+router.get('/:user_id', (req, res) => {
+  models.User.findById(req.params.user_id).then((user) => {
+    res.send(user);
+  });
+});
+
+router.delete('/:user_id', (req, res) => {
   models.User.destroy({
     where: {
       id: req.params.user_id
     }
-  }).then(function() {
-    res.redirect('/');
+  }).then(() => {
+    return res.json({
+      "message": "User deleted"
+    });
   });
 });
 

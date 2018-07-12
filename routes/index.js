@@ -2,10 +2,8 @@ var models  = require('../models');
 var express = require('express');
 var router  = express.Router();
 
-router.get('/users', function(req, res) {
-  models.User.findAll().then(function(users) {
-    res.send(users);
-  });
+router.get('/', (req, res) => {
+  return res.status(404).end();
 });
 
 module.exports = router;

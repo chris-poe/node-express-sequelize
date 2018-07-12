@@ -2,8 +2,8 @@
 
 var expect = require('expect.js');
 
-describe('models/index', function () {
-  it('returns the user model', function () {
+describe('models/index', () => {
+  it('returns the user model', () => {
     var models = require('../../models');
     expect(models.User).to.be.ok();
   });
