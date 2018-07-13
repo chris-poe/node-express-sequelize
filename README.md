@@ -1,4 +1,4 @@
-# Express Example
+# Express Sequelize
 
 This repository demonstrates the usage of Sequelize within an [Express](https://expressjs.com) application.
 
