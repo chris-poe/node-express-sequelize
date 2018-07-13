@@ -1,5 +1,5 @@
 {
-  "name": "express-sequelize",
+  "name": "node-express-sequelize",
   "version": "0.0.0",
   "private": true,
   "scripts": {
