@@ -132,15 +132,15 @@ you have to adjust the `bin/www` file to this:
 ```js
 #!/usr/bin/env node
 
-var app = require('../app');
-var debug = require('debug')('init:server');
-var http = require('http');
-var models = require("../models");
+const app = require('../app');
+const debug = require('debug')('init:server');
+const http = require('http');
+const models = require("../models");
 
-var port = normalizePort(process.env.PORT || '8000');
+const port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 // sync() will create all table if they doesn't exist in database
 models.sequelize.sync().then(function () {

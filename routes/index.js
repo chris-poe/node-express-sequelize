@@ -1,6 +1,6 @@
-var models  = require('../models');
-var express = require('express');
-var router  = express.Router();
+const models  = require('../models');
+const express = require('express');
+const router  = express.Router();
 
 router.get('/', (req, res) => {
   return res.status(404).end();

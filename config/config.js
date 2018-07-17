@@ -1,11 +1,16 @@
+const Sequelize = require('sequelize');
+
 module.exports = {
   development: {
     dialect: "sqlite",
-    storage: "./db.development.sqlite"
+    storage: "./db.development.sqlite",
+    operatorsAliases: Sequelize.Op,
+    logging: false
   },
   test: {
     dialect: "sqlite",
-    storage: ":memory:"
+    storage: ":memory:",
+    operatorsAliases: Sequelize.Op
   },
   production: {
     username: process.env.DB_USERNAME,
@@ -13,6 +18,7 @@ module.exports = {
     database: process.env.DB_NAME,
     host: process.env.DB_HOSTNAME,
     dialect: 'mysql',
-    use_env_variable: 'DATABASE_URL'
+    use_env_constiable: 'DATABASE_URL',
+    operatorsAliases: Sequelize.Op
   }
 };

@@ -1,9 +1,9 @@
 'use strict';
 
-var app      = require('../../app');
-var Bluebird = require('bluebird');
-var expect   = require('expect.js');
-var request  = require('supertest');
+const app      = require('../../app');
+const Bluebird = require('bluebird');
+const expect   = require('expect.js');
+const request  = require('supertest');
 
 describe('user creation page', () => {
   before(() => {
