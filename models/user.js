@@ -8,13 +8,14 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING
   });
 
-  User.hook('beforeCreate', (User, options) => {
-  	bcrypt.hash(User.password, 10, (err, hash) => {
-		  return User.update({
-		    password: hash
-		  });
-		});
-	});
+
+  User.beforeCreate(user => {
+    bcrypt.hash(User.password, 10, (err, hash) => {
+      return User.update({
+        password: hash
+      });
+    });
+  });
 
   return User;
 };
